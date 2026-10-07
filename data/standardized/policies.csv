@@ -1,0 +1,21 @@
+policy_number,customer_name,effective_date,expiration_date,coverage_type,annual_premium,deductible,source_carrier
+POL-10001,Michael Carter,2026-01-01,2026-12-31,Auto,1845.0,500,Carrier A
+POL-10002,Sarah Johnson,2026-02-15,2027-02-14,Home,2360.0,1000,Carrier A
+POL-10003,David Williams,2026-03-01,2027-02-28,Auto,1525.5,500,Carrier A
+POL-10004,Emily Rodriguez,2026-04-10,2027-04-09,Renters,485.0,250,Carrier A
+POL-10005,James Anderson,2026-05-20,2027-05-19,Home,2785.75,1500,Carrier A
+POL-10006,Amanda Thompson,2026-06-01,2027-05-31,Auto,1690.25,1000,Carrier A
+POL-10007,Robert Martinez,2026-07-15,2027-07-14,Motorcycle,975.0,500,Carrier A
+POL-10008,Jessica Brown,2026-08-01,2027-07-31,Auto,2015.5,500,Carrier A
+POL-10009,Christopher Davis,2026-09-10,2027-09-09,Home,3150.0,2000,Carrier A
+POL-10010,Ashley Wilson,2026-10-01,2027-09-30,Renters,525.0,250,Carrier A
+B-20001,Daniel Harris,2026-01-15,2027-01-14,Auto,1950.0,500,Carrier B
+B-20002,Olivia Martin,2026-02-01,2027-01-31,Home,2750.0,1000,Carrier B
+B-20003,William Scott,2026-03-10,2027-03-09,Renters,625.5,250,Carrier B
+B-20004,Sophia Clark,2026-04-01,2027-03-31,Auto,1825.75,500,Carrier B
+B-20005,James Walker,2026-05-20,2027-05-19,Home,3100.0,1500,Carrier B
+B-20006,Isabella Young,2026-06-15,2027-06-14,Motorcycle,1150.0,500,Carrier B
+B-20007,Benjamin King,2026-07-01,2027-06-30,Auto,2025.0,1000,Carrier B
+B-20008,Mia Wright,2026-08-10,2027-08-09,Renters,550.0,250,Carrier B
+B-20009,Lucas Green,2026-09-01,2027-08-31,Home,2890.25,2000,Carrier B
+B-20010,Charlotte Adams,2026-10-01,2027-09-30,Auto,1675.0,500,Carrier B

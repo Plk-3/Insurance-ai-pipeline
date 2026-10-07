@@ -1,0 +1,11 @@
+Policy_ID,Insured_Name,Start_Date,End_Date,Product,Premium,Deductible_Amount
+B-20001,Daniel Harris,01/15/2026,01/14/2027,Auto,"$1,950.00","$500"
+B-20002,Olivia Martin,02/01/2026,01/31/2027,Home,"$2,750.00","$1,000"
+B-20003,William Scott,03/10/2026,03/09/2027,Renters,"$625.50","$250"
+B-20004,Sophia Clark,04/01/2026,03/31/2027,Auto,"$1,825.75","$500"
+B-20005,James Walker,05/20/2026,05/19/2027,Home,"$3,100.00","$1,500"
+B-20006,Isabella Young,06/15/2026,06/14/2027,Motorcycle,"$1,150.00","$500"
+B-20007,Benjamin King,07/01/2026,06/30/2027,Auto,"$2,025.00","$1,000"
+B-20008,Mia Wright,08/10/2026,08/09/2027,Renters,"$550.00","$250"
+B-20009,Lucas Green,09/01/2026,08/31/2027,Home,"$2,890.25","$2,000"
+B-20010,Charlotte Adams,10/01/2026,09/30/2027,Auto,"$1,675.00","$500"
