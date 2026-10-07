@@ -1,0 +1,11 @@
+PolicyNumber,CustomerName,EffectiveDate,ExpirationDate,CoverageType,AnnualPremium,Deductible
+POL-10001,Michael Carter,2026-01-01,2026-12-31,Auto,1845.00,500
+POL-10002,Sarah Johnson,2026-02-15,2027-02-14,Home,2360.00,1000
+POL-10003,David Williams,2026-03-01,2027-02-28,Auto,1525.50,500
+POL-10004,Emily Rodriguez,2026-04-10,2027-04-09,Renters,485.00,250
+POL-10005,James Anderson,2026-05-20,2027-05-19,Home,2785.75,1500
+POL-10006,Amanda Thompson,2026-06-01,2027-05-31,Auto,1690.25,1000
+POL-10007,Robert Martinez,2026-07-15,2027-07-14,Motorcycle,975.00,500
+POL-10008,Jessica Brown,2026-08-01,2027-07-31,Auto,2015.50,500
+POL-10009,Christopher Davis,2026-09-10,2027-09-09,Home,3150.00,2000
+POL-10010,Ashley Wilson,2026-10-01,2027-09-30,Renters,525.00,250
