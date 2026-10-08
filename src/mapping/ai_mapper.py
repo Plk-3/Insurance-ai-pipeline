@@ -29,47 +29,94 @@ MOCK_MAPPING = {
 
 
 def validate_mapping(mapping, source_columns):
-    """Reject unknown, duplicate, or incomplete mappings."""
+    """Validate that the suggested mapping is complete and unique."""
+
     if not isinstance(mapping, dict):
         raise ValueError("Mapping must be a dictionary.")
 
+    if len(source_columns) != len(set(source_columns)):
+        raise ValueError("Duplicate source column names detected.")
+
     if set(mapping.keys()) != set(source_columns):
-        raise ValueError("Mapping must include every source column.")
+        raise ValueError(
+            "Mapping must contain exactly the supplied source columns."
+        )
 
     if set(mapping.values()) != set(TARGET_COLUMNS):
-        raise ValueError("Mapping must match the target schema exactly.")
+        raise ValueError(
+            "Mapping must contain each target column exactly once."
+        )
 
     return mapping
 
 
 def suggest_mapping(source_columns, mode="mock"):
-    """Suggest a source-to-target column mapping."""
+    """
+    Suggest mappings using mock data or the OpenAI API.
+
+    Mock mode does not make API calls.
+    Live mode sends source column names to OpenAI.
+    """
 
     if mode == "mock":
-        mapping = {
-            column: MOCK_MAPPING[column]
-            for column in source_columns
-        }
+        try:
+            mapping = {
+                column: MOCK_MAPPING[column]
+                for column in source_columns
+            }
+        except KeyError as error:
+            raise ValueError(
+                f"No mock mapping available for: {error}"
+            ) from error
 
     elif mode == "live":
-        client = OpenAI()
+        if not os.getenv("OPENAI_API_KEY"):
+            raise RuntimeError(
+                "OPENAI_API_KEY is not configured."
+            )
+
+        client = OpenAI(timeout=30.0, max_retries=1)
 
         prompt = (
-            "You are a data engineering assistant. "
-            "Map insurance source columns to target columns. "
-            "Return only a JSON object with source column names "
-            "as keys and target column names as values. "
-            "Do not invent fields.\n\n"
+            "You are an insurance data engineering assistant. "
+            "Map each source column to exactly one target column. "
+            "Do not invent columns or values. "
+            "Return the mapping as a JSON object.\n\n"
             f"Source columns: {json.dumps(source_columns)}\n"
             f"Target columns: {json.dumps(TARGET_COLUMNS)}"
         )
 
-        response = client.responses.create(
-            model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
-            input=prompt,
-        )
+        try:
+            response = client.responses.create(
+                model=os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+                input=prompt,
+                text={
+                    "format": {
+                        "type": "json_schema",
+                        "name": "insurance_column_mapping",
+                        "strict": True,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                column: {
+                                    "type": "string",
+                                    "enum": TARGET_COLUMNS,
+                                }
+                                for column in source_columns
+                            },
+                            "required": source_columns,
+                            "additionalProperties": False,
+                        },
+                    }
+                },
+            )
 
-        mapping = json.loads(response.output_text)
+            mapping = json.loads(response.output_text)
+
+        except Exception as error:
+            raise RuntimeError(
+                f"OpenAI mapping request failed: {error}"
+            ) from error
 
     else:
         raise ValueError("Mode must be 'mock' or 'live'.")
