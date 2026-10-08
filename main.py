@@ -1,3 +1,8 @@
+from src.database.database_manager import (
+    initialize_database,
+    save_policies,
+    get_policy_count,
+)
 from pathlib import Path
 import os
 import pandas as pd
@@ -60,7 +65,12 @@ def main():
         output_folder / "invalid_policies.csv",
         index=False,
     )
+    # Store validated policies in SQLite
+    initialize_database()
+    save_policies(valid_data)
 
+    print(f"Policies stored in database: {get_policy_count()}")
+    
     print("\n--- Validation Summary ---")
     print(f"Total policies: {len(validated_data)}")
     print(f"Valid policies: {len(valid_data)}")
