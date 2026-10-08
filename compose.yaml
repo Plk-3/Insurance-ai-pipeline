@@ -1,0 +1,12 @@
+
+services:
+  insurance-api:
+    build: .
+    container_name: insurance-ai-api
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      MAPPING_MODE: mock
+    restart: unless-stopped
