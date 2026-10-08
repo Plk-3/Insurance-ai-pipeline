@@ -1,0 +1,6 @@
+PolicyRef,Insured,Inception,Termination,InsuranceProduct,WrittenPremium,Excess
+C-30001,Matthew Evans,2026-01-15,2027-01-14,Auto,2100.00,500
+C-30002,Grace Mitchell,2026-02-01,2027-01-31,Home,2850.00,1000
+C-30003,Andrew Collins,2026-03-10,2027-03-09,Renters,675.00,250
+C-30004,Chloe Parker,2026-04-01,2027-03-31,Auto,1950.00,500
+C-30005,Noah Bennett,2026-05-20,2027-05-19,Home,3200.00,1500
